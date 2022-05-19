@@ -14,22 +14,17 @@ module.exports = (sequelize, DataTypes) => {
 
         });
 
-	//  Product.associate = function (models) {
+	  Personaje.associate = function (models) {
 	 	
-	//  	Product.belongsTo(models.Type, {
-	//  		as: "types",
-	//  		foreignKey: "typeId"
-	//  	});
-
-	//  	Product.belongsToMany(models.Cart, {
-	//  		as: "cart",
-	//  		through: "productCart",
-	//  		foreignKey: "productId",
-	//  		otherKey: "cartId",
-	//  	});
+	  	Personaje.belongsToMany(models.Peliculaserie, {
+	  		as: "peliculaserie",
+	  		through: "personajepeliculaserie",
+	  		foreignKey: "personajeid",
+	  		otherKey: "peliculaserieid"
+	  	});
 
 
-	//  };
+	  };
 
 	return Personaje;
 };

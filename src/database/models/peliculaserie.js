@@ -4,7 +4,7 @@ module.exports = (sequelize, DataTypes) => {
 		imagen: DataTypes.STRING,
 		titulo: DataTypes.STRING,
 		fechaDeCreacion: DataTypes.DATE,
-		titulo: DataTypes.INTEGER,
+		calificacion: DataTypes.INTEGER,
     }, 
 	{
         tableName: 'peliculaserie',
@@ -13,22 +13,25 @@ module.exports = (sequelize, DataTypes) => {
 
         });
 
-	//  Product.associate = function (models) {
+		Peliculaserie.associate = function (models) {
 	 	
-	//  	Product.belongsTo(models.Type, {
-	//  		as: "types",
-	//  		foreignKey: "typeId"
-	//  	});
 
-	//  	Product.belongsToMany(models.Cart, {
-	//  		as: "cart",
-	//  		through: "productCart",
-	//  		foreignKey: "productId",
-	//  		otherKey: "cartId",
-	//  	});
+			Peliculaserie.belongsToMany(models.Genero, {
+	  		as: "genero",
+	  		through: "peliculaseriegenero",
+	  		foreignKey: "peliculaserieid",
+	  		otherKey: "generoid"
+	  	});
+
+			Peliculaserie.belongsToMany(models.Personaje, {
+	  		as: "personaje",
+	  		through: "personajepeliculaserie",
+	  		foreignKey: "peliculaserieid",
+	  		otherKey: "personajeId"
+	  	});
 
 
-	//  };
+	  };
 
 	return Peliculaserie;
 };

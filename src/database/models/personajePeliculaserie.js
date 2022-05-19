@@ -12,22 +12,7 @@ module.exports = (sequelize, DataTypes) => {
 
         });
 
-	//  Product.associate = function (models) {
-	 	
-	//  	Product.belongsTo(models.Type, {
-	//  		as: "types",
-	//  		foreignKey: "typeId"
-	//  	});
 
-	//  	Product.belongsToMany(models.Cart, {
-	//  		as: "cart",
-	//  		through: "productCart",
-	//  		foreignKey: "productId",
-	//  		otherKey: "cartId",
-	//  	});
-
-
-	//  };
 
 	return PersonajePeliculaSerie;
 };

@@ -11,22 +11,19 @@ module.exports = (sequelize, DataTypes) => {
 
         });
 
-	//  Product.associate = function (models) {
+		Genero.associate = function (models) {
 	 	
-	//  	Product.belongsTo(models.Type, {
-	//  		as: "types",
-	//  		foreignKey: "typeId"
-	//  	});
 
-	//  	Product.belongsToMany(models.Cart, {
-	//  		as: "cart",
-	//  		through: "productCart",
-	//  		foreignKey: "productId",
-	//  		otherKey: "cartId",
-	//  	});
+		Genero.belongsToMany(models.Peliculaserie, {
+			as: "peliculaserie",
+			through: "peliculaseriegenero",
+			foreignKey: "generoid",
+			otherKey: "peliculaserieid"
+			
+		});
 
 
-	//  };
+	  };
 
 	return Genero;
 };
